@@ -34,3 +34,13 @@ Route::get('/Moderator', 'ModeratorController@index')->name('Moderator')->middle
 Route::get('/User', 'UserController@index')->name('User')->middleware('auth','role:User');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('profiles', 'ProfileController');
+
+Route::get('/profiles', 'ProfileController@index')->name('index')->middleware('auth','role:Administrator');
+
+Route::get('/show/{id}', 'ProfileController@show')->name('show2')->middleware('auth','role:Administrator');
+Route::get('/show', 'ProfileController@show2')->name('show');
+
+Route::get('/edit/{id}', 'ProfileController@edit2')->name('edit2');
+Route::get('/edit', 'ProfileController@edit')->name('edit');

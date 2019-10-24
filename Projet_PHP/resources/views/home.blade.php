@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged {{ User::profile()->id }}!
+                    You are logged {{ Auth::User()->name }}!
                 </div>
             </div>
         </div>

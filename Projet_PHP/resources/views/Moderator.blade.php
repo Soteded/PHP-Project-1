@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in, ya moderator {{ Auth::user() }}!
+                    You are logged in, ya moderator {{ Auth::user()->name }}!
                 </div>
             </div>
         </div>

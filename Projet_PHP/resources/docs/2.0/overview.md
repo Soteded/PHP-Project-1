@@ -3,6 +3,9 @@
 ---
 
 - [Séance 1](http://127.0.0.1:8000/docs/{{version}}/overview#section-1)
+  - [Étape 1](http://127.0.0.1:8000/docs/{{version}}/overview#etape-1)
+  - [Étape 2](http://127.0.0.1:8000/docs/{{version}}/overview#etape-2)
+  - [Étape 3](http://127.0.0.1:8000/docs/{{version}}/overview#etape-3)
 
 - [Séance 2](http://127.0.0.1:8000/docs/{{version}}/overview#section-2)
 
@@ -11,6 +14,8 @@
 <a name="section-1"></a>
 
 ## Séance 1 : Installation de l'environnement de développement et création du premier projet
+
+<a name="etape-1"></a>
 
 ### Étape 1 : Installation de l'environnement de développement
 
@@ -33,6 +38,8 @@ Afin d'héberger notre site (en local) nous utiliserons Uwamp. Une fois de plus,
 - #### Installer ou avoir une base de données
 
 Comme précédemment fait avec Uwamp, `MySQL` sera installé, et avec Apache (aussi installé) nous pourrons accèder à notre base de données en ligne en cliquant sur le boutton `PHPMyAdmin` sur la fenêtre Uwamp une fois le serveur lancé. Il est conseillé de s'y rendre une première fois afin de créer une base de données (petit boutton `Nouvelle bas de données` en haut de la liste sur la gauche) que nous utiliserons plus tard.
+
+<a name="etape-2"></a>
 
 ### Étape 2 : Créer son premier projet
 
@@ -66,7 +73,9 @@ Laravel development server started: <http://127.0.0.1:8000>
 
 Et une fois dessus, on obtient ceci :
 
-![Apercu](/public/images/imagesDoc/laravelView.png)
+![Apercu](/images/laravelView.png)
+
+<a name="etape-3"></a>
 
 ### Étape 3 : Lire et comprendre
 
@@ -318,9 +327,9 @@ Route::get('moderator', 'ModeratorController@index')->name('Moderator')->middlew
 Route::get('user', 'UserController@index')->name('User')->middleware('auth','role:User');
 ```
 
-### Exercice 4 : Créer un Profile
+### Exercice 4 : Créer un Profil
 
-Pour commencer, on créée un model profile, avec un controller, une factory ainsi qu'une migration avec les commandes :
+Pour commencer, on créée un model profil, avec un controller, une factory ainsi qu'une migration avec les commandes :
 
 | Commande | Action |
 | :------: | :----: |
@@ -338,7 +347,7 @@ public function profile()
     }
 ```
 
-Et de même pour le modèle Profile (en adaptant pour User). Toujours dans `Profile.php`, on ajoute tous les champs que l'on souhaite avoir dans un profile, à savoir le nom, le prénom,  l'âge, le numéro de téléphone et l'adresse.
+Et de même pour le modèle Profile (en adaptant pour User). Toujours dans `Profile.php`, on ajoute tous les champs que l'on souhaite avoir dans un profil, à savoir le nom, le prénom,  l'âge, le numéro de téléphone et l'adresse.
 
 ```php
 protected $fillable = [
@@ -362,7 +371,7 @@ return [
     ];
 ```
 
-On va ensuite adapter les seeders. Commençons par le plus simple : `DatabaseSeeder.php`. Dans ce fichier, nous aurons juste besoin d'ajouter la ligne "classico-classique" si je puis dire `ProfileTableSeeder::class,` et à créer un profile en appelant la factory dans `ProfileSeeder.php`: 
+On va ensuite adapter les seeders. Commençons par le plus simple : `DatabaseSeeder.php`. Dans ce fichier, nous aurons juste besoin d'ajouter la ligne "classico-classique" si je puis dire `ProfileTableSeeder::class,` et à créer un profil en appelant la factory dans `ProfileSeeder.php`: 
 
 ```php
 User::all()->each(function ($user){
@@ -370,7 +379,7 @@ User::all()->each(function ($user){
 });
 ```
 
-> {warning} Attention à bien mettre, dans DatabaseSeeder, ProfileTableSeeder en tout dernier (Pour ajouter des profiles à des utilisateurs qui existent)
+> {warning} Attention à bien mettre, dans DatabaseSeeder, ProfileTableSeeder en tout dernier (Pour ajouter des profils à des utilisateurs qui existent)
 
 Pour finir, on modifie la migration en remplissant les fonctions `up` :
 
@@ -404,6 +413,6 @@ Schema::dropIfExists('profiles');
 
 ### Etape 3 : Commencer la documentation de ce que vous avez fait (commande, fichier, etc)
 
-### Exercice 1 : CRUD Profile
+### Exercice 1 : CRUD Profil
 
 ### Exercice 2 : Middleware redirect authenticated

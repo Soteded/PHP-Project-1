@@ -15,21 +15,21 @@ class UsersTableSeeder extends Seeder
         #### ADMINISTRATEUR ####
         $role_admin = Role::where('name', 'Administrator')->first();
 
-        factory(App\User::class, 10)->create()->each(function ($user) use ($role_admin) {
+        factory(App\User::class, 20)->create()->each(function ($user) use ($role_admin) {
             $user->assignRole($role_admin);
         });
 
         #### MODERATEUR ####
         $role_modo = Role::where('name', 'Moderator')->first();
 
-        factory(App\User::class, 40)->create()->each(function ($user) use ($role_modo) {
+        factory(App\User::class, 60)->create()->each(function ($user) use ($role_modo) {
             $user->assignRole($role_modo);
         });
 
         #### UTILISATEURS ####
         $role_user = Role::where('name', 'User')->first();
 
-        factory(App\User::class, 50)->create()->each(function ($user) use ($role_user) {
+        factory(App\User::class, 120)->create()->each(function ($user) use ($role_user) {
             $user->assignRole($role_user);
         });
     }
